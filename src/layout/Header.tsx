@@ -12,7 +12,7 @@ const Header = () => {
                     <Link className={` font-quicksand-medium bg-purple-700 py-2 px-4 rounded-lg text-purple-200`} href={'/'}>Home</Link>
                     <Link className={`font-quicksand-medium text-purple-200 py-2 px-4`} href={'/'}>Profile</Link>
                     <Link className={`font-quicksand-medium text-purple-200 py-2 px-4`} href={'/'}>About Project</Link>
-                    <Link className={`font-quicksand-medium text-purple-200 py-2 px-4`} href={'/'}>Blogs</Link>
+                    <Link className={`font-quicksand-medium text-purple-200 py-2 px-4`} href={'/blogs'}>Blogs</Link>
                </section>
                <section className="flex gap-x-4">
                     <button className="bg-purple-800 hover:bg-purple-900 py-2 duration-150 px-4 text-purple-200 font-quicksand-medium rounded-md">Login</button>
