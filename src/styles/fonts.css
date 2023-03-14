@@ -1,0 +1,29 @@
+/* //! =================Quicksand Font================== */
+/* bold */
+@font-face {
+    font-family: quicksand-bold;
+    font-style: normal;
+    font-weight: bold;
+    src: url("/fonts/Quicksand-Bold.ttf");
+}
+/* light */
+@font-face {
+    font-family: quicksand-light;
+    font-style: normal;
+    font-weight: 300;
+    src: url("/fonts/Quicksand-Light.ttf");
+}
+/* medium */
+@font-face {
+    font-family: quicksand-medium;
+    font-style: normal;
+    font-weight: 500;
+    src: url("/fonts/Quicksand-Medium.ttf");
+}
+/* Regular */
+@font-face {
+    font-family: quicksand-regular;
+    font-style: normal;
+    font-weight: normal;
+    src: url("/fonts/Quicksand-Regular.ttf");
+}
