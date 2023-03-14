@@ -1,9 +1,11 @@
 import LoginModal from "@/components/Login";
+import RegisterModal from "@/components/Register";
 import Link from "next/link";
 import { useState } from "react";
 
 const Header = () => {
-     const [isShowLoginModal,setIsShowLoginModal] = useState<boolean>(true)
+     const [isShowLoginModal,setIsShowLoginModal] = useState<boolean>(false)
+     const [isShowRegisterModal,setIsShowRegisterModal] = useState<boolean>(false)
      
      return (  
           <>
@@ -20,10 +22,11 @@ const Header = () => {
                     </section> */}
                     <section className="flex gap-x-4">
                          <button onClick={() => setIsShowLoginModal(true)} className="bg-purple-800 hover:bg-purple-900 py-2 duration-150 px-4 text-purple-200 font-quicksand-medium rounded-md">Login</button>
-                         <button className="hover:bg-purple-500 duration-150 border border-purple-500 py-2 px-4 text-purple-200 font-quicksand-medium rounded-md">Register</button>
+                         <button onClick={() => setIsShowRegisterModal(true)} className="hover:bg-purple-500 duration-150 border border-purple-500 py-2 px-4 text-purple-200 font-quicksand-medium rounded-md">Register</button>
                     </section>
                </header>
                {isShowLoginModal ? <LoginModal setIsShowLoginModal={setIsShowLoginModal}/> : null}
+               {isShowRegisterModal ? <RegisterModal setIsShowRegisterModal={setIsShowRegisterModal}/> : null}
           </>
      );
 }
