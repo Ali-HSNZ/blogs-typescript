@@ -6,18 +6,18 @@ type TBlogPorps = {
 }
 const Blog : FC<TBlogPorps> = ({blog}) => {
      return (  
-          <div className="max-w-sm rounded overflow-hidden shadow-lg">
-               <img className="w-full" src="https://v1.tailwindcss.com/img/card-top.jpg" alt="Sunset in the mountains"/>
-               <div className="px-6 py-4">
-                    <div className="font-quicksand-bold text-xl mb-2">{blog.title}</div>
-                    <p className="text-gray-700 text-sm font-quicksand-medium">{blog.description}</p>
+          <section className="w-full h-full rounded-md overflow-hidden shadow-lg pb-4 flex flex-col justify-between">
+               <div className="">
+                    <img className="w-full object-cover" src={blog.img} alt={`image - ${blog.title}`}/>
+                    <p className="font-quicksand-bold text-xl mt-4 px-4">{blog.title}</p>
+                    <p className="text-gray-700 mt-4 px-4 text-sm font-quicksand-medium">{blog.description}</p>
                </div>
                <div className="px-6 mt-4 pb-2">
                     {blog.tags.map(tag => (
-                         <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-xs font-quicksand-medium text-gray-700 mr-2 mb-2">#{tag}</span>
+                         <span className=" bg-gray-200 rounded-full px-3 py-1 text-xs font-quicksand-medium text-gray-700 mr-2 mb-2">#{tag}</span>
                     ))}
                </div>
-          </div>
+          </section>
      );
 }
  

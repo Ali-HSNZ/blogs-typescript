@@ -6,7 +6,7 @@ const BlogList = () => {
           {
                id : 1,
                title : "The Coldest Sunset",
-               description : "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.",
+               description : "Lorem ipationem praesentium nihil.",
                tags : ['photography' , "travel" , "winter"],
                img : "https://v1.tailwindcss.com/img/card-top.jpg",
           },
@@ -50,8 +50,8 @@ const BlogList = () => {
      
      return (  
           <>
-               <h1 className="pt-4 px-4 text-2xl font-quicksand-bold">Home.</h1>
-               <article className="grid sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4">
+               <h1 className="pt-4 px-4 text-2xl w-full font-quicksand-bold">Home.</h1>
+               <article className="blogs_parent_grid w-full p-4">
                     {blogs.map(blog => <Blog blog={blog}/>)}
                </article>
           </>
