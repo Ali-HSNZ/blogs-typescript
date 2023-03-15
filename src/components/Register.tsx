@@ -29,7 +29,6 @@ const RegisterModal : FC<TRegisterModalProps> = ({setIsShowRegisterModal}) => {
                               </svg>
                          </div>
                     </div>
-                    <hr className="border-1 border-gray-300 mt-4"/>
                     <div className="flex gap-x-4 mt-4 justify-end">
                          <button type="button" onClick={() => setIsShowRegisterModal(false)} className="border border-purple-600 duration-100 hover:bg-purple-100 font-quicksand-medium px-6 py-2 text-purple-600 rounded-md">Cancel</button>
                          <button type="button" className="bg-purple-600 hover:bg-purple-700 duration-100  font-quicksand-medium px-6 py-2 text-purple-50 rounded-md">Register</button>
