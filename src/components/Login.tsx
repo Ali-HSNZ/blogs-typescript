@@ -1,23 +1,25 @@
 import { Modal } from "@mui/material";
 import { ChangeEvent, Dispatch, FC, FormEvent, SetStateAction, useState } from "react";
+import axios from 'axios'
 
 type TLoginModalProps = {
      setIsShowLoginModal : Dispatch<SetStateAction<boolean>>
 }
 
 type TLoginValues = {
-     email : string
+     username : string
      password : string
 }
 
 const LoginModal : FC<TLoginModalProps> = ({setIsShowLoginModal}) => {
-     const [inputValues , setInputValues] = useState<TLoginValues>({email : "" , password : ""})
+     const [inputValues , setInputValues] = useState<TLoginValues>({username : "" , password : ""})
 
      const changeInputHandler = (input : ChangeEvent<HTMLInputElement>) => {
           setInputValues({...inputValues , [input.target.name] : input.target.value})
      }
-     const onSubmit = (form : FormEvent<HTMLFormElement>) => {
+     const onSubmit = async(form : FormEvent<HTMLFormElement>) => {
           form.preventDefault();
+          await axios.post('http://localhost:3700/auth/login' , inputValues)          
      }
      return (  
           <Modal open={true} onClose={() => setIsShowLoginModal(false)} className="flex justify-center outline-none items-center p-4" >
@@ -26,15 +28,16 @@ const LoginModal : FC<TLoginModalProps> = ({setIsShowLoginModal}) => {
                     <div className="flex flex-col gap-y-4 mt-4">
                          <div className="w-full relative">
                               <input 
-                                   placeholder="Email" 
+                                   placeholder="Username" 
                                    className="w-full outline-none font-quicksand-medium bg-gray-200 py-2 pr-4 pl-10 border border-gray-300 rounded-md" 
                                    type="text" 
-                                   name="email" 
-                                   value={inputValues.email}
+                                   name="username" 
+                                   autoComplete="off"
+                                   value={inputValues.username}
                                    onChange={input => changeInputHandler(input)}
                               />
                               <svg className="w-6 h-6 text-gray-400 absolute left-2 top-[9px]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
-                                   <path strokeLinecap="round" d="M16.5 12a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0zm0 0c0 1.657 1.007 3 2.25 3S21 13.657 21 12a9 9 0 10-2.636 6.364M16.5 12V8.25" />
+                                   <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
                               </svg>
                          </div>
                          <div className="w-full relative">
@@ -42,6 +45,7 @@ const LoginModal : FC<TLoginModalProps> = ({setIsShowLoginModal}) => {
                                    placeholder="Password" 
                                    className="w-full outline-none font-quicksand-medium bg-gray-200 py-2 pr-4 pl-10 border border-gray-300 rounded-md" 
                                    type="text" 
+                                   autoComplete="off"
                                    name="password"
                                    value={inputValues.password}
                                    onChange={input => changeInputHandler(input)}
